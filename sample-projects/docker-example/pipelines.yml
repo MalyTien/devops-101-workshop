@@ -3,7 +3,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: my_github                       # <-- replace with your integration
-      path: katcosgrove/devops-101-workshop   # <-- replace with your repository name
+      path: malytien/devops-101-workshop   # <-- replace with your repository name
       branches:
         include: new-pipeline
 
@@ -11,8 +11,8 @@ resources:
     type: Image
     configuration:
       registry: art                                # <-- replace with your artifactory integration
-      sourceRepository: demo-docker-local               # <-- required if registry is Artifactory
-      imageName: katcsandbox.jfrog.io/demo-docker-local/docker-demo # < -- replace with your image path and name
+      sourceRepository: malytien-docker-local               # <-- required if registry is Artifactory
+      imageName: malytien.jfrog.io/malytien-docker-local/my-docker-image # < -- replace with your image path and name
       imageTag: latest
       autoPull: true
       
@@ -40,7 +40,7 @@ pipelines:
           affinityGroup: demo_group
           dockerFileLocation: ./sample-projects/docker-example
           dockerFileName: Dockerfile
-          dockerImageName: katcsandbox.jfrog.io/demo-docker-local/docker-demo  # replace with your image path and name
+          dockerImageName: malytien.jfrog.io/malytien-docker-local/my-docker-image  # replace with your image path and name
           dockerImageTag: ${run_number}
           inputResources:
             - name: demo_repo
