@@ -51,7 +51,7 @@ pipelines:
         type: DockerPush
         configuration:
           affinityGroup: demo_group
-          targetRepository: demo-docker-local
+          targetRepository: malytien-docker-local
           integrations:
             - name: art                            # <-- replace with your artifactory integration
           inputSteps:
